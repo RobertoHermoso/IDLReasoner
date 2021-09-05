@@ -3,7 +3,6 @@ package es.us.isa.idlreasoner.analyzer;
 import es.us.isa.idlreasoner.compiler.Resolutor;
 import es.us.isa.idlreasoner.mapper.AbstractMapper;
 import es.us.isa.idlreasoner.util.CommonResources;
-import org.apache.commons.lang3.SystemUtils;
 
 import java.io.IOException;
 import java.util.*;
@@ -105,15 +104,12 @@ public class Analyzer {
 		analyzer.updateData(data);
 	}
 
-
-
-
-
-
-
-
-
-
-
+	/**
+	 * This method is to be called when IDLReasoner has been used to generate MANY requests without custom
+	 * data (method {@link Analyzer#updateData(Map)}), to reset the string-int map. It should improve performance.
+	 */
+	public void resetStringIntMapping() {
+		mapper.resetStringIntMappingWithIDLValues();
+	}
 
 }
